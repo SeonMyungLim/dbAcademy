@@ -1,12 +1,5 @@
 #Simple Note Project
 
-## by DB_Academy
-
-## by CKO
-
-
-## git Ãæµ¹ Å×½ºÆ®......
-
-- TEST GIT
-
-##¿¿¿¿¿
+- 1st) Note Function (Write, Read, Modify)
+-- Local Storage
+- 2nd) Weather or Bus/Metro
