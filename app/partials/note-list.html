@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+            <div>To do list Container</div>
+            <div>Calendar Container</div>
+            <div>Bus or Subway(Metro)Container </div>
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <div class="noteAdd oneNote col-md-2">
+        <p>노트 추가</p>
+          </div>
+
+      <div ng-repeat="phone in phones" class="oneNote col-md-2">
+          <p>{{phone.name}}</p>
+          <p>{{phone.snippet}}</p>
+          <br/>
+      </div>
+      <!--<ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
+            class="thumbnail phone-listing">
+          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+              <p>{{phone.snippet}}</p>
+            </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
