@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="ko" ng-app="TODOApp">
 <head>
   <meta charset="utf-8">
-  <title>Google Phone Gallery!!! </title>
+  <title>DBAcademyMe Test</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -18,11 +18,32 @@
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
 </head>
-<body>
+<body class="well" ng-controller="todoCtrl">
+    <div>   
+    <h1>{{appName}}</h1>
+    </div>
+    <div>
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="todo in todoList">
+                    <th scope="row"><input type="CHECKBOX" ng-model="
+                        todo.done"></th>
+                    <td>{{todo.title}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>전체 할 일 <strong>{{todoList.length}}</strong>개 | 남은 할일 <strong>{{remain()}}</strong>개</p>
+    <form name="newItemForm" class="form-inline" action="">
+     <div class="form-group">
+         <label class="sr-only" for="newItemText">새로운 할 일</label>
+         <input type="text" class="form-control" name="newItemText" placeholder="새로운 할일"
+          ng-model="newTitle">
+     </div>
+     <button type="submit" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
+     </form>
 
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
-  </div>
-	
+     <button class="btn btn-default" ng-click="archive()">완료</button>
+     <button class="btn btn-default" ng-click="save()">저장</button>
 </body>
 </html>
