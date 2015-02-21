@@ -13,6 +13,9 @@ body {
   position: relative;
   float: left;
 }
+.col-md-2{
+    background-color: brown;
+}
 
 .phones {
   list-style: none;
@@ -25,9 +28,16 @@ body {
   height: 100px;
   width: 100px;
 }
-
+.oneNote{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    margin: -0.5em 1em 1.5em 0;
+    
+}
 .phones li {
   clear: both;
+  width: 150px;
   height: 115px;
   padding-top: 15px;
 }
