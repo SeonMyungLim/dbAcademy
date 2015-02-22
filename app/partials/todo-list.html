@@ -1,0 +1,20 @@
+<div>   
+            <h1>{{appName}}</h1>
+        </div>
+        <div>
+            <ul class="list-unstyled">
+                <li ng-repeat="todo in todoList" class="checkbox">
+                    <input type="CHECKBOX" ng-model="todo.done">{{todo.title}}
+                </li>
+            </ul>
+        </div>
+        <p>전체 할 일 <strong>{{todoList.length}}</strong>개 | 남은 할일 <strong>{{remain()}}</strong>개</p>
+         <div class="form-group">
+             <label class="sr-only" for="newItemText">새로운 할 일</label>
+             <input type="text" class="form-control" name="newItemText" placeholder="새로운 할일"
+          ng-model="newTitle">
+     </div>
+     <button type="button" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
+
+     <button class="btn btn-default" ng-click="archive()">삭제</button>
+     <button class="btn btn-default" ng-click="save()">저장</button>
