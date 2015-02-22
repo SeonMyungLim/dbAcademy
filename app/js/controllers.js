@@ -76,9 +76,12 @@ TODOApp.controller('NoteCtrl', function($scope){
 
 
     //새로운 메모 추가
-    $scope.save = function(newContent){
-        $scope.NoteList.push({content:newContent});
-        $scope.message="";
+    $scope.save = function(message){
+        $scope.NoteList.push({
+        content:message,
+        order: $scope.NoteList.length+1
+        });
+        $scope.message='';
     };
 
     //메모 삭제
