@@ -30,24 +30,26 @@
             <div>Bus or Subway(Metro)Container </div>
     </div><!-- col-md-2 -->
     
+	<!-- memo -->
+	<div class="memo" ng-controller="NoteCtrl">
 	<div class="col-md-10">
       <!--Body content-->
       <div class="noteAdd oneNote col-md-2">
 		<i class="pin"></i>
-        <p class="memo-name">노트 추가 <span ng-bind="left()">0 / 300<span></p>
-		<p><textarea class="write-message" ng-model="message" maxLength="300"></textarea><p>
+        <p class="memoName">새 메모 <span class="memoLength" ng-bind="left()">0 / 300<span></p>
+		<p><textarea class="writeMessage" ng-model="message" maxLength="300"></textarea><p>
 		<p class="bottom">
-			<button class="savebtn btn-link">Save</button>
-			<button class="cancelbtn btn-link">Cancel</button>
+			<button class="savebtn btn-link" ng-click="save(message)">Save</button>
+			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
 		</p>
       </div><!-- noteAdd oneNote col-md-2 -->
 
-      <div ng-repeat="phone in phones" class="oneNote col-md-2">
-          <p class="memo-name">{{phone.age}}</p>
-          <p><textarea readonly class="read-message">{{phone.snippet}}</textarea></p>
+      <div ng-repeat="note in NoteList" class="oneNote col-md-2">
+          <p class="memoName">날짜</p>
+          <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
 		  <p class="bottom">
 				<button class="modifybtn btn-link">Modify</button>
-				<button class="deletebtn btn-link">Delete</button>
+				<button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
 		  </p>
           
       </div><!-- oneNote col-md-2 -->
@@ -60,6 +62,6 @@
             </li>
       </ul>-->
     </div><!-- col-md-10 -->
-  
+  </div>
   </div><!-- row -->
 </div><!-- container-fluid -->

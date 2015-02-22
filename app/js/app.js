@@ -65,6 +65,7 @@ TODOApp.config(['$routeProvider',
 
 
 TODOApp.controller('NoteCtrl', function($scope){
+
     //Notelist initializing
     $scope.NoteList = [
             {'content':"메모1"},
@@ -79,7 +80,7 @@ TODOApp.controller('NoteCtrl', function($scope){
     //새로운 메모 추가
     $scope.save = function(newContent){
         $scope.NoteList.push({content:newContent});
-        $scope.newContent='';
+        $scope.message='';
     };
 
     //메모 삭제
@@ -87,5 +88,13 @@ TODOApp.controller('NoteCtrl', function($scope){
         var index =$scope.NoteList.indexOf(Note);
         $scope.NoteList.splice(index,1);
     };
+
+	//메모 작성 취소
+	$scope.cancel = function(){
+		$scope.message="";
+	}
+	
+	//입력 가능 글자
+	$scope.left  = function() {return $scope.message.length + " / " + 300;};
 
 }); //NoteCtrl
