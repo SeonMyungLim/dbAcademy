@@ -2,22 +2,48 @@
   <div class="row">
     <div class="col-md-2">
       <!--Sidebar content-->
-            <div>To do list Container</div>
+    <!--todo list START-->
+    <div class="well" ng-controller="todoCtrl">
+        <div>   
+            <h1>{{appName}}</h1>
+        </div>
+        <div>
+            <ul class="list-unstyled">
+                <li ng-repeat="todo in todoList" class="checkbox">
+                    <input type="CHECKBOX" ng-model="todo.done">{{todo.title}}
+                </li>
+            </ul>
+        </div>
+        <p>전체 할 일 <strong>{{todoList.length}}</strong>개 | 남은 할일 <strong>{{remain()}}</strong>개</p>
+         <div class="form-group">
+             <label class="sr-only" for="newItemText">새로운 할 일</label>
+             <input type="text" class="form-control" name="newItemText" placeholder="새로운 할일"
+          ng-model="newTitle">
+     </div>
+     <button type="button" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
+
+     <button class="btn btn-default" ng-click="archive()">삭제</button>
+     <button class="btn btn-default" ng-click="save()">저장</button>
+     </div>
+     <!--to do list end-->
             <div>Calendar Container</div>
             <div>Bus or Subway(Metro)Container </div>
-    </div>
-    <div class="col-md-10">
+    </div><!-- col-md-2 -->
+    
+	<div class="col-md-10">
       <!--Body content-->
-
       <div class="noteAdd oneNote col-md-2">
-        <p>노트 추가</p>
-          </div>
+        <p class="memo-name">노트 추가 <span ng-bind="left()">0 / 300<span></p>
+		<textarea ng-model="message" maxLength="300"></textarea>
+		<div class="bottom"></div>
+      </div><!-- noteAdd oneNote col-md-2 -->
 
       <div ng-repeat="phone in phones" class="oneNote col-md-2">
-          <p>{{phone.name}}</p>
-          <p>{{phone.snippet}}</p>
+          <p class="memo-name">{{phone.name}}</p>
+          <textarea>{{phone.snippet}}</textarea>
+		  <div class="bottom"></div>
           <br/>
-      </div>
+      </div><!-- oneNote col-md-2 -->
       <!--<ul class="phones">
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
@@ -25,8 +51,8 @@
           <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
               <p>{{phone.snippet}}</p>
             </li>
-      </ul>
-
-    </div>
-  </div>
-</div>
+      </ul>-->
+    </div><!-- col-md-10 -->
+  
+  </div><!-- row -->
+</div><!-- container-fluid -->

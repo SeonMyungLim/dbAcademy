@@ -4,7 +4,6 @@ body {
   padding-top: 20px;
 }
 
-
 .phone-images {
   background-color: white;
   width: 450px;
@@ -13,6 +12,7 @@ body {
   position: relative;
   float: left;
 }
+
 .col-md-2{
     background-color: brown;
 }
@@ -28,13 +28,14 @@ body {
   height: 100px;
   width: 100px;
 }
+
 .oneNote{
     width: 200px;
-    height: 200px;
-    background-color: yellow;
-    margin: -0.5em 1em 1.5em 0;
-    
+    height: 220px;
+    background-color: #ffa;
+    margin: -0.5em 1em 1.5em 0;    
 }
+
 .phones li {
   clear: both;
   width: 150px;
@@ -42,6 +43,21 @@ body {
   padding-top: 15px;
 }
 
+.memo-name {
+	height: 30px;
+}
+textarea {
+	width:185px;
+    height:170px;
+	float: left; 
+	background: #ffa; 
+	border: 0; 
+	resize:none;
+}
+
+.bottom {
+	height: 10;
+}
 /** Detail View **/
 img.phone {
   float: left;

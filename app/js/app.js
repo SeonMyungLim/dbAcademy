@@ -2,8 +2,12 @@
 
 /* App Module */
 
-var TODOApp = angular.module('TODOApp',[]);
+var TODOApp = angular.module('TODOApp',[
+    'ngRoute',
+    'phonecatControllers',
+    'phonecatServices'
 
+]);
 
 TODOApp.controller('todoCtrl', function($scope){
     //todolist initializing
@@ -14,7 +18,6 @@ TODOApp.controller('todoCtrl', function($scope){
         ];
      $scope.appName = 'Todo List';
     //초기 할일 목록 설정
-
 
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
@@ -40,28 +43,21 @@ TODOApp.controller('todoCtrl', function($scope){
          return remainCount;
     }
 });
-
-
-var phonecatApp = angular.module('phonecatApp', [
-  'ngRoute',
-  'phonecatAnimations',
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
-]);
-
-phonecatApp.config(['$routeProvider',
+TODOApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
+      when('/todolist', {
         templateUrl: 'partials/note-list.html',
         controller: 'PhoneListCtrl'
       }).
+      /*
       when('/phones/:phoneId', {
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
       }).
+      */
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/todolist'
       });
   }]);
+
