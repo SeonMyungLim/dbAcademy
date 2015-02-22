@@ -19,7 +19,8 @@
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
 </head>
-<body class="well" ng-controller="todoCtrl">
+<body>
+    <div class="well col-md-2" ng-controller="todoCtrl">
     <div>   
         <h1>{{appName}}</h1>
     </div>
@@ -42,7 +43,8 @@
      </div>
      <button type="button" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
 
-     <button class="btn btn-default" ng-click="archive()">완료</button>
+     <button class="btn btn-default" ng-click="archive()">삭제</button>
      <button class="btn btn-default" ng-click="save()">저장</button>
+     </div>
 </body>
 </html>
