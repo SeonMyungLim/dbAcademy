@@ -4,21 +4,21 @@
 
 var TODOApp = angular.module('TODOApp',[]);
 
-var todoList = [
-    {'done' : true,  'title':"주제 고르기"},
-    {'done' : false, 'title':"작성하기"},
-    {'done' : false, 'title':"놀기"}
-    ];
 
 TODOApp.controller('todoCtrl', function($scope){
+    //todolist initializing
+    $scope.todoList = [
+            {'done' : true,  'title':"주제 고르기"},
+            {'done' : false, 'title':"작성하기"},
+            {'done' : false, 'title':"놀기"}
+        ];
      $scope.appName = 'Todo List';
     //초기 할일 목록 설정
 
-    $scope.todoList = todoList;
 
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
-        todoList.push({done:false, title:newTitle});
+        $scope.todoList.push({done:false, title:newTitle});
         $scope.newTitle='';
     };
 
