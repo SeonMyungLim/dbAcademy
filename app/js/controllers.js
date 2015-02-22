@@ -8,7 +8,11 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
   function($scope, Phone) {
     $scope.phones = Phone.query();
     $scope.orderProp = 'age';
-	$scope.left  = function() {return $scope.message.length + " / " + 300;};
+	$scope.left  = function() {
+        if (!$scope.message || !$scope.message.length == 0)
+            return;
+        return $scope.message.length + " / " + 300;
+    };
   }]);
 
 phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
