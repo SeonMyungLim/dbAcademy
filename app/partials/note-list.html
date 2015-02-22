@@ -17,8 +17,8 @@
       <!--Body content-->
       <div class="noteAdd oneNote col-md-2">
 		<i class="pin"></i>
-        <p class="memoName">새 메모 <span class="memoLength" ng-bind="left()">0 / 300<span></p>
-		<p><textarea class="writeMessage" ng-model="message" maxLength="300"></textarea><p>
+        <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
+		<p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea><p>
 		<p class="bottom">
 			<button class="savebtn btn-link" ng-click="save(message)">Save</button>
 			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
