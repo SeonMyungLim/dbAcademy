@@ -40,17 +40,8 @@ TODOApp.controller('todoCtrl', function($scope){
          return remainCount;
     }
 });
-
-
-var phonecatApp = angular.module('phonecatApp', [
-  'ngRoute',
-  'phonecatAnimations',
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
-]);
-
-phonecatApp.config(['$routeProvider',
+/*
+TODOApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/phones', {
@@ -61,11 +52,15 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
       }).
+
       otherwise({
         redirectTo: '/phones'
       });
   }]);
 
+  }
+]);
+*/
 
 TODOApp.controller('NoteCtrl', function($scope){
 

@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/noteapp.css">
   <link rel="stylesheet" href="css/animations.css">
-
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="../bower_components/angular-animate/angular-animate.js"></script>
@@ -18,12 +17,20 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
+
 </head>
 <body>
-
-  <div class="view-container">
-    <div ng-view class="view-frame"></div>
-  </div>
-	
+      <div class="container-fluid">
+        <div class="row-fluid">  
+          <div class="span2"><div  ng-controller="todoCtrl" ng-include src="'partials/sidebar.html'">
+            <!--sidebar content-->
+          </div>
+          </div><!--sidebar end--> 
+          
+          <div class="span10"><div ng-controller="NoteCtrl" ng-include src="'partials/contents.html'">
+            
+          </div><!--contents end-->
+        </div><!--row-fluid-->
+      </div><!--container-fluid-->  
 </body>
 </html>
