@@ -21,7 +21,7 @@
 </head>
 <body class="well" ng-controller="todoCtrl">
     <div>   
-    <h1>{{appName}}</h1>
+        <h1>{{appName}}</h1>
     </div>
     <div>
         <table class="table">
@@ -35,14 +35,12 @@
         </table>
     </div>
     <p>전체 할 일 <strong>{{todoList.length}}</strong>개 | 남은 할일 <strong>{{remain()}}</strong>개</p>
-    <form name="newItemForm" class="form-inline" action="">
      <div class="form-group">
          <label class="sr-only" for="newItemText">새로운 할 일</label>
          <input type="text" class="form-control" name="newItemText" placeholder="새로운 할일"
           ng-model="newTitle">
      </div>
-     <button type="submit" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
-     </form>
+     <button type="button" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
 
      <button class="btn btn-default" ng-click="archive()">완료</button>
      <button class="btn btn-default" ng-click="save()">저장</button>
