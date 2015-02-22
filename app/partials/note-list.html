@@ -3,46 +3,36 @@
     <div class="col-md-2">
       <!--Sidebar content-->
     <!--todo list START-->
-    <div class="well" ng-controller="todoCtrl">
-        <div>   
-            <h1>{{appName}}</h1>
-        </div>
-        <div>
-            <ul class="list-unstyled">
-                <li ng-repeat="todo in todoList" class="checkbox">
-                    <input type="CHECKBOX" ng-model="todo.done">{{todo.title}}
-                </li>
-            </ul>
-        </div>
-        <p>전체 할 일 <strong>{{todoList.length}}</strong>개 | 남은 할일 <strong>{{remain()}}</strong>개</p>
-         <div class="form-group">
-             <label class="sr-only" for="newItemText">새로운 할 일</label>
-             <input type="text" class="form-control" name="newItemText" placeholder="새로운 할일"
-          ng-model="newTitle">
-     </div>
-     <button type="button" class="btn btn-default" ng-click="addNewTodo(newTitle)">추가</button>
-
-     <button class="btn btn-default" ng-click="archive()">삭제</button>
-     <button class="btn btn-default" ng-click="save()">저장</button>
+    <div class="well"  ng-include src="'/app/partials/todo-list.html'">
+        
      </div>
      <!--to do list end-->
             <div>Calendar Container</div>
             <div>Bus or Subway(Metro)Container </div>
     </div><!-- col-md-2 -->
     
+	<!-- memo -->
+	<div class="memo" ng-controller="NoteCtrl">
 	<div class="col-md-10">
       <!--Body content-->
       <div class="noteAdd oneNote col-md-2">
-        <p class="memo-name">노트 추가 <span ng-bind="left()">0 / 300<span></p>
-		<textarea ng-model="message" maxLength="300"></textarea>
-		<div class="bottom"></div>
+		<i class="pin"></i>
+        <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
+		<p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea><p>
+		<p class="bottom">
+			<button class="savebtn btn-link" ng-click="save(message)">Save</button>
+			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
+		</p>
       </div><!-- noteAdd oneNote col-md-2 -->
 
-      <div ng-repeat="phone in phones" class="oneNote col-md-2">
-          <p class="memo-name">{{phone.name}}</p>
-          <textarea>{{phone.snippet}}</textarea>
-		  <div class="bottom"></div>
-          <br/>
+      <div ng-repeat="note in NoteList" class="oneNote col-md-2">
+          <p class="memoName">날짜</p>
+          <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
+		  <p class="bottom">
+				<button class="modifybtn btn-link">Modify</button>
+				<button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
+		  </p>
+          
       </div><!-- oneNote col-md-2 -->
       <!--<ul class="phones">
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
@@ -53,6 +43,6 @@
             </li>
       </ul>-->
     </div><!-- col-md-10 -->
-  
+  </div>
   </div><!-- row -->
 </div><!-- container-fluid -->
