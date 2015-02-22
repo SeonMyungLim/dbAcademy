@@ -33,16 +33,23 @@
 	<div class="col-md-10">
       <!--Body content-->
       <div class="noteAdd oneNote col-md-2">
+		<i class="pin"></i>
         <p class="memo-name">노트 추가 <span ng-bind="left()">0 / 300<span></p>
-		<textarea ng-model="message" maxLength="300"></textarea>
-		<div class="bottom"></div>
+		<p><textarea class="write-message" ng-model="message" maxLength="300"></textarea><p>
+		<p class="bottom">
+			<button class="savebtn btn-link">Save</button>
+			<button class="cancelbtn btn-link">Cancel</button>
+		</p>
       </div><!-- noteAdd oneNote col-md-2 -->
 
       <div ng-repeat="phone in phones" class="oneNote col-md-2">
-          <p class="memo-name">{{phone.name}}</p>
-          <textarea>{{phone.snippet}}</textarea>
-		  <div class="bottom"></div>
-          <br/>
+          <p class="memo-name">{{phone.age}}</p>
+          <p><textarea readonly class="read-message">{{phone.snippet}}</textarea></p>
+		  <p class="bottom">
+				<button class="modifybtn btn-link">Modify</button>
+				<button class="deletebtn btn-link">Delete</button>
+		  </p>
+          
       </div><!-- oneNote col-md-2 -->
       <!--<ul class="phones">
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
