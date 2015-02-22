@@ -1,48 +1,19 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-    <!--todo list START-->
-    <div class="well" ng-controller="NoteCtrl" ng-include src="'/app/partials/todo-list.html'">
-        
-     </div>
-     <!--to do list end-->
-            <div>Calendar Container</div>
-            <div>Bus or Subway(Metro)Container </div>
-    </div><!-- col-md-2 -->
-    
-	<!-- memo -->
-	<div class="memo" ng-controller="NoteCtrl">
-	<div class="col-md-10">
-      <!--Body content-->
-      <div class="noteAdd oneNote col-md-2">
-		<i class="pin"></i>
-        <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
-		<p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea><p>
-		<p class="bottom">
-			<button class="savebtn btn-link" ng-click="save(message)">Save</button>
-			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
-		</p>
-      </div><!-- noteAdd oneNote col-md-2 -->
+<!--Body content-->
+<div class="noteAdd oneNote col-md-2">
+	<i class="pin"></i>
+  <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
+	<p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea><p>
+	<p class="bottom">
+	<button class="savebtn btn-link" ng-click="save(message)">Save</button>
+	<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
+	</p>
+</div><!-- noteAdd oneNote col-md-2 -->
 
-      <div ng-repeat="note in NoteList" class="oneNote col-md-2">
-          <p class="memoName">날짜</p>
-          <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
-		  <p class="bottom">
-				<button class="modifybtn btn-link">Modify</button>
-				<button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
-		  </p>
-          
-      </div><!-- oneNote col-md-2 -->
-      <!--<ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-              <p>{{phone.snippet}}</p>
-            </li>
-      </ul>-->
-    </div><!-- col-md-10 -->
-  </div>
-  </div><!-- row -->
-</div><!-- container-fluid -->
+<div ng-repeat="note in NoteList" class="oneNote col-md-2">
+  <p class="memoName">날짜</p>
+  <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
+  <p class="bottom">
+  <button class="modifybtn btn-link">Modify</button>
+  <button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
+  </p>
+</div>
