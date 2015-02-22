@@ -43,7 +43,7 @@ TODOApp.controller('todoCtrl', function($scope){
          return remainCount;
     }
 });
-
+/*
 TODOApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
@@ -51,18 +51,18 @@ TODOApp.config(['$routeProvider',
         templateUrl: 'partials/note-list.html',
         controller: 'PhoneListCtrl'
       }).
-      /*
+      
       when('/phones/:phoneId', {
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
       }).
-      */
+      
       otherwise({
         redirectTo: '/todolist'
       });
   }
 ]);
-
+*/
 
 TODOApp.controller('NoteCtrl', function($scope){
 
