@@ -3,6 +3,7 @@
 
 	<div class="searchbox"> <!--Memo Search Start-->
 	  <input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
+	  <input type="button" ng-click="saveLocalMemo()" value="전체 메모 저장">
 	</div> <!--Memo Search End-->
 
 	<div class="noteAdd oneNote col-md-2">
@@ -28,6 +29,5 @@
 		<button class="cancelbtn btn-link" ng-click="cancelMemo(note)" ng-hide="note.edit">Cancel</button>
 	  </p>
 	 
-	  
 	</div>
 </div>

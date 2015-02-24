@@ -58,18 +58,24 @@ TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope,
     }
 }]);
 
-TODOApp.controller('NoteCtrl', function($scope){
+TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, localStorageService){
 
-    //Notelist initializing
-    $scope.NoteList = [
-            {'content':"메모1", 'order': 1, 'edit': true, 'modifyclick':false},
-            {'content':"메모2", 'order': 2, 'edit': true, 'modifyclick':false},
-            {'content':"메모3", 'order': 3, 'edit': true, 'modifyclick':false}
-    ];
+    var storageKey = "NoteList";
+    var NoteList = localStorageService.get(storageKey);
+    if(NoteList){
 
-     $scope.appName = 'Note List';
+        $scope.NoteList = NoteList;
+    }else{
+        $scope.NoteList = [
+            {'content':"27일 멘토링 종료", 'order': 1, 'edit': true, 'modifyclick':false},
+            {'content':"3월 4일 \n LG그룹 이력서 접수 시작", 'order': 2, 'edit': true, 'modifyclick':false},
+            {'content':"Mean :\n MongDB,\n Express,\n AngularJS, \n NodeJS", 'order': 3, 'edit': true, 'modifyclick':false}
+        ]
+    }
+
+    $scope.appName = 'Note List';
     //초기 할일 목록 설정
-	 $scope.message="";
+    $scope.message="";
 
     //새로운 메모 추가
     $scope.save = function(message){
@@ -129,8 +135,12 @@ TODOApp.controller('NoteCtrl', function($scope){
 		$scope.NoteList[index].modifyclick = false;
 //		alert(msg);
 	}
+    $scope.saveLocalMemo = function(index){
+        localStorageService.add(storageKey,$scope.NoteList);
+        alert("메모 저장 완료");
+    }
 	
     //입력 가능 글자
 	$scope.left  = function(msg) {return msg.length + " / " + 300;};
 
-}); //NoteCtrl
+}]); //NoteCtrl
