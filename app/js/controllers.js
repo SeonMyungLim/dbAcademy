@@ -3,22 +3,36 @@
 /* Controllers */
 
 
-TODOApp.controller('todoCtrl', function($scope){
+TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope, localStorageService){
     //todolist initializing
-    $scope.todoList = [
-            {'done' : true,  'title':"주제 고르기"},
-            {'done' : false, 'title':"작성하기"},
-            {'done' : false, 'title':"놀기"}
-        ];
-     $scope.appName = 'To do List';
+
+    $scope.appName = 'To do List';
+    $scope.newTitle = "";
     //초기 할일 목록 설정
 
+    var storageKey = "todoList";
+    var todoList = localStorageService.get(storageKey);
+    if(todoList){
+        $scope.todoList = todoList;
+    }else{
+        $scope.todoList = [
+            {'done' : true,  'title':"주제 고르기"},
+            {'done' : true, 'title':"할일 분담하기"},
+            {'done' : true, 'title':"코드 작성하기"},
+            {'done' : false, 'title':"PPT 만들기"},
+            {'done' : false, 'title':"이메일 보내기(산출물, PPT)"}
+        ]
+    };
 
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
         $scope.todoList.push({done:false, title:newTitle});
-        $scope.newTitle='';
+        $scope.newTitle="";
     };
+
+    $scope.edit = function(todo){
+        todo.editable = !todo.editable;
+    }
 
     //완료한 일 삭제
     $scope.archive = function(){
@@ -37,7 +51,12 @@ TODOApp.controller('todoCtrl', function($scope){
         })
          return remainCount;
     }
-});
+
+    $scope.save = function(index){
+        localStorageService.add(storageKey,$scope.todoList);
+        alert('저장 완료');
+    }
+}]);
 
 TODOApp.controller('NoteCtrl', function($scope){
 
