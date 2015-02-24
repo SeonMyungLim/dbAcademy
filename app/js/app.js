@@ -2,12 +2,8 @@
 
 /* App Module */
 
-var TODOApp = angular.module('TODOApp',[
-    'ngRoute',
-    'phonecatControllers',
-    'phonecatServices'
+var TODOApp = angular.module('TODOApp',[]);
 
-]);
 
 TODOApp.controller('todoCtrl', function($scope){
     //todolist initializing
@@ -18,6 +14,7 @@ TODOApp.controller('todoCtrl', function($scope){
         ];
      $scope.appName = 'Todo List';
     //초기 할일 목록 설정
+
 
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
@@ -44,33 +41,14 @@ TODOApp.controller('todoCtrl', function($scope){
     }
 });
 
-TODOApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/todolist', {
-        templateUrl: 'partials/note-list.html',
-        controller: 'PhoneListCtrl'
-      }).
-      /*
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
-      }).
-      */
-      otherwise({
-        redirectTo: '/todolist'
-      });
-  }
-]);
-
 
 TODOApp.controller('NoteCtrl', function($scope){
 
     //Notelist initializing
     $scope.NoteList = [
-            {'content':"메모1"},
-            {'content':"메모2"},
-            {'content':"메모3"}
+            {'content':"메모1", 'order': 1},
+            {'content':"메모2", 'order': 2},
+            {'content':"메모3", 'order': 3}
     ];
 
      $scope.appName = 'Note List';
@@ -78,9 +56,12 @@ TODOApp.controller('NoteCtrl', function($scope){
 
 
     //새로운 메모 추가
-    $scope.save = function(newContent){
-        $scope.NoteList.push({content:newContent});
-        $scope.message="";
+    $scope.save = function(message){
+        $scope.NoteList.push({
+        content:message,
+        order: $scope.NoteList.length+1
+        });
+        $scope.message='';
     };
 
     //메모 삭제
@@ -93,8 +74,8 @@ TODOApp.controller('NoteCtrl', function($scope){
 	$scope.cancel = function(){
 		$scope.message="";
 	}
-	
+
 	//입력 가능 글자
-	$scope.left  = function() {return $scope.message.length + " / " + 300;};
+	//$scope.left  = function() {return $scope.message.length + " / " + 300;};
 
 }); //NoteCtrl
