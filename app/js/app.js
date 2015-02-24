@@ -41,7 +41,7 @@ TODOApp.controller('todoCtrl', function($scope){
     }
 });
 
-
+/*
 TODOApp.controller('NoteCtrl', function($scope){
 
     //Notelist initializing
@@ -79,3 +79,4 @@ TODOApp.controller('NoteCtrl', function($scope){
 	//$scope.left  = function() {return $scope.message.length + " / " + 300;};
 
 }); //NoteCtrl
+*/

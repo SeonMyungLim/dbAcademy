@@ -43,27 +43,33 @@ TODOApp.controller('NoteCtrl', function($scope){
 
     //Notelist initializing
     $scope.NoteList = [
-            {'content':"메모1", 'order': 1},
-            {'content':"메모2", 'order': 2},
-            {'content':"메모3", 'order': 3}
+            {'content':"메모1", 'order': 1, 'edit': true, 'modifyclick':false},
+            {'content':"메모2", 'order': 2, 'edit': true, 'modifyclick':false},
+            {'content':"메모3", 'order': 3, 'edit': true, 'modifyclick':false}
     ];
 
      $scope.appName = 'Note List';
     //초기 할일 목록 설정
-
+	 $scope.message="";
 
     //새로운 메모 추가
     $scope.save = function(message){
-        $scope.NoteList.push({
-        content:message,
-        order: $scope.NoteList.length+1
-        });
-        $scope.message='';
+		if(message.length == 0){
+			alert("메모를 입력하세요.");
+		}else{
+			$scope.NoteList.push({
+			content:message,
+			order: $scope.NoteList[$scope.NoteList.length-1].order+1,
+			edit:true,
+			modifyclick:false
+			});
+			$scope.message="";
+		}
     };
-
+	var index;
     //메모 삭제
-    $scope.remove = function(Note){
-        var index =$scope.NoteList.indexOf(Note);
+    $scope.remove = function(note){
+        index =$scope.NoteList.indexOf(note);
         $scope.NoteList.splice(index,1);
     };
 
@@ -71,9 +77,32 @@ TODOApp.controller('NoteCtrl', function($scope){
     $scope.cancel = function(){
         $scope.message="";
     }
+	
+	var temp;
+	//메모 수정
+	$scope.modify = function(msg, note){
+		index =$scope.NoteList.indexOf(note);
+		temp = msg;
+//		alert(temp);
+		$scope.NoteList[index].edit = false;
+		$scope.NoteList[index].modifyclick = true;
+	}
 
+	$scope.cancelMemo = function(note){
+		index =$scope.NoteList.indexOf(note);
+		$scope.NoteList[index].content = temp;
+		$scope.NoteList[index].edit = true;
+		$scope.NoteList[index].modifyclick = false;	
+//		alert($scope.NoteList[index].content);
+	}
+
+	$scope.saveMemo = function(note){
+		$scope.NoteList[index].edit = true;
+		$scope.NoteList[index].modifyclick = false;
+//		alert(msg);
+	}
+	
     //입력 가능 글자
-    //에러 발생으로 주석 처리
-    //$scope.left  = function() {return $scope.message.length + " / " + 300;};
+	$scope.left  = function(msg) {return msg.length + " / " + 300;};
 
 }); //NoteCtrl

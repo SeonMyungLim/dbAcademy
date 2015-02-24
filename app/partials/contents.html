@@ -1,29 +1,33 @@
 <!--Body content-->
-<div class="row-fluid">
+<div class="row-fluid" ng-controller="NoteCtrl">
 
-<div class="searchbox"> <!--Memo Search Start-->
-  <input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
+	<div class="searchbox"> <!--Memo Search Start-->
+	  <input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
+	</div> <!--Memo Search End-->
 
+	<div class="noteAdd oneNote col-md-2">
+	  <i class="pin"></i>
+	  
+	  <p class="memoName"><span class="memoLength" ng-bind="left(message)"><span></p>
+	  <p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea></p>
+	  <p class="bottom">
+			<button class="savebtn btn-link" ng-click="save(message)">Save</button>
+			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
+	  </p>
 
-</div> <!--Memo Search End-->
+	</div><!-- noteAdd oneNote col-md-2 -->
 
-
-<div class="noteAdd oneNote col-md-2">
-	<i class="pin"></i>
-  <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
-	<p><textarea class="writeMessage" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea><p>
-	<p class="bottom">
-	<button class="savebtn btn-link" ng-click="save(message)">Save</button>
-	<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
-	</p>
-</div><!-- noteAdd oneNote col-md-2 -->
-
-<div ng-repeat="note in NoteList | filter:query " class="oneNote col-md-2">
-  <p class="memoName">{{note.order}}</p>
-  <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
-  <p class="bottom">
-  <button class="modifybtn btn-link">Modify</button>
-  <button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
-  </p>
-</div>
+	<div ng-repeat="note in NoteList | filter:query " class="oneNote col-md-2">
+	
+	  <p class="memoName">{{note.order}}<span class="memoLength" ng-bind="left(note.content)" ng-hide="note.edit"><span></p>
+	  <p><textarea class="readMessage" ng-disabled="note.edit" ng-model="note.content"></textarea></p>
+	  <p class="bottom">
+		<button class="modifybtn btn-link" ng-click="modify(note.content, note)" ng-hide="note.modifyclick">Modify</button>
+		<button class="deletebtn btn-link" ng-click="remove(note)" ng-hide="note.modifyclick">Delete</button>
+		<button class="savebtn btn-link" ng-click="saveMemo(note)" ng-hide="note.edit">Save</button>
+		<button class="cancelbtn btn-link" ng-click="cancelMemo(note)" ng-hide="note.edit">Cancel</button>
+	  </p>
+	 
+	  
+	</div>
 </div>
