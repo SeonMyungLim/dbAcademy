@@ -22,14 +22,14 @@
 <body>
       <div class="container-fluid">
         <div class="row-fluid">  
-          <div class="span2"><div  ng-controller="todoCtrl" ng-include src="'partials/sidebar.html'">
-            <!--sidebar content-->
+          <div class="col-md-3"><div  ng-controller="todoCtrl" ng-include src="'partials/sidebar.html'">
+            <!--sidebar contentst-->
           </div>
           </div><!--sidebar end--> 
           
-          <div class="span10"><div ng-controller="NoteCtrl" ng-include src="'partials/contents.html'">
+          <div class="col-md-9"><div ng-controller="NoteCtrl" ng-include src="'partials/contents.html'">
             
-          </div><!--contents end-->
+              </div><!--contents end-->
         </div><!--row-fluid-->
       </div><!--container-fluid-->  
 </body>
