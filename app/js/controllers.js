@@ -57,12 +57,21 @@ TODOApp.controller('NoteCtrl', function($scope){
 		if(message.length == 0){
 			alert("메모를 입력하세요.");
 		}else{
-			$scope.NoteList.push({
-			content:message,
-			order: $scope.NoteList[$scope.NoteList.length-1].order+1,
-			edit:true,
-			modifyclick:false
-			});
+			if($scope.NoteList.length == 0){
+				$scope.NoteList.push({
+				content:message,
+				order: 1,
+				edit:true,
+				modifyclick:false
+				});
+			}else{
+				$scope.NoteList.push({
+				content:message,
+				order: $scope.NoteList[$scope.NoteList.length-1].order+1,
+				edit:true,
+				modifyclick:false
+				});
+			}
 			$scope.message="";
 		}
     };
