@@ -19,7 +19,7 @@
 </div><!-- noteAdd oneNote col-md-2 -->
 
 <div ng-repeat="note in NoteList | filter:query " class="oneNote col-md-2">
-  <p class="memoName">날짜</p>
+  <p class="memoName">{{note.order}}</p>
   <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
   <p class="bottom">
   <button class="modifybtn btn-link">Modify</button>
