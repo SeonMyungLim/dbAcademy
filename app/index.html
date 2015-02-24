@@ -2,7 +2,7 @@
 <html lang="ko" ng-app="TODOApp">
 <head>
   <meta charset="utf-8">
-  <title>Google Phone Gallery!!! </title>
+  <title>Service For Me</title>
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/noteapp.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -22,9 +22,11 @@
 <body>
       <div class="container-fluid">
         <div class="row-fluid">  
-          <div class="col-md-3"><div  ng-controller="todoCtrl" ng-include src="'partials/sidebar.html'">
+          <div class="col-md-3">
             <!--sidebar contentst-->
-          </div>
+            <div  ng-controller="todoCtrl" ng-include src="'partials/sidebar.html'">
+            </div>
+
           </div><!--sidebar end--> 
           
           <div class="col-md-9"><div ng-controller="NoteCtrl" ng-include src="'partials/contents.html'">

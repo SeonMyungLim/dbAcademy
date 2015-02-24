@@ -10,8 +10,9 @@ TODOApp.controller('todoCtrl', function($scope){
             {'done' : false, 'title':"작성하기"},
             {'done' : false, 'title':"놀기"}
         ];
-     $scope.appName = 'Todo List';
+     $scope.appName = 'To do List';
     //초기 할일 목록 설정
+
 
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
@@ -42,9 +43,9 @@ TODOApp.controller('NoteCtrl', function($scope){
 
     //Notelist initializing
     $scope.NoteList = [
-            {'content':"메모1"},
-            {'content':"메모2"},
-            {'content':"메모3"}
+            {'content':"메모1", 'order': 1},
+            {'content':"메모2", 'order': 2},
+            {'content':"메모3", 'order': 3}
     ];
 
      $scope.appName = 'Note List';
@@ -66,12 +67,13 @@ TODOApp.controller('NoteCtrl', function($scope){
         $scope.NoteList.splice(index,1);
     };
 
-  //메모 작성 취소
-  $scope.cancel = function(){
-    $scope.message="";
-  }
+    //메모 작성 취소
+    $scope.cancel = function(){
+        $scope.message="";
+    }
 
-  //입력 가능 글자
-  $scope.left  = function() {return $scope.message.length + " / " + 300;};
+    //입력 가능 글자
+    //에러 발생으로 주석 처리
+    //$scope.left  = function() {return $scope.message.length + " / " + 300;};
 
 }); //NoteCtrl

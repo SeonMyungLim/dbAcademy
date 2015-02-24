@@ -1,4 +1,13 @@
 <!--Body content-->
+<div class="row-fluid">
+
+<div class="searchbox"> <!--Memo Search Start-->
+  <input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
+
+
+</div> <!--Memo Search End-->
+
+
 <div class="noteAdd oneNote col-md-2">
 	<i class="pin"></i>
   <p class="memoName"><span class="memoLength" ng-bind="left()">0 / 300<span></p>
@@ -9,11 +18,12 @@
 	</p>
 </div><!-- noteAdd oneNote col-md-2 -->
 
-<div ng-repeat="note in NoteList" class="oneNote col-md-2">
+<div ng-repeat="note in NoteList | filter:query " class="oneNote col-md-2">
   <p class="memoName">날짜</p>
   <p><textarea readonly class="readMessage">{{note.content}}</textarea></p>
   <p class="bottom">
   <button class="modifybtn btn-link">Modify</button>
   <button class="deletebtn btn-link" ng-click="remove(note)">Delete</button>
   </p>
+</div>
 </div>

@@ -40,27 +40,7 @@ TODOApp.controller('todoCtrl', function($scope){
          return remainCount;
     }
 });
-/*
-TODOApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/note-list.html',
-        controller: 'PhoneListCtrl'
-      }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
-      }).
 
-      otherwise({
-        redirectTo: '/phones'
-      });
-  }]);
-
-  }
-]);
-*/
 
 TODOApp.controller('NoteCtrl', function($scope){
 
@@ -96,6 +76,6 @@ TODOApp.controller('NoteCtrl', function($scope){
 	}
 
 	//입력 가능 글자
-	$scope.left  = function() {return $scope.message.length + " / " + 300;};
+	//$scope.left  = function() {return $scope.message.length + " / " + 300;};
 
 }); //NoteCtrl
