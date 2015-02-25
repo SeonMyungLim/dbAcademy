@@ -1,9 +1,9 @@
 <!--Body content-->
 <div class="row-fluid" ng-controller="NoteCtrl">
 
-	<div class="searchbox"> <!--Memo Search Start-->
-		<input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
-		<input class="btn-success" type="button" ng-click="saveLocalMemo()" value="전체 메모 저장">
+	<div class="contentHeader"> <!--Memo Search Start-->
+		<input class="btn-success saveBtn" type="button" ng-click="saveLocalMemo()" value="전체 메모 저장">
+		<input type="text" class="form-control searchbox" ng-model="query" placeholder="메모 검색">
 	</div> <!--Memo Search End-->
 	<p></p>
 	
