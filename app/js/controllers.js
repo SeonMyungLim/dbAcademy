@@ -12,9 +12,9 @@ TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope,
 
     var storageKey = "todoList";
     var todoList = localStorageService.get(storageKey);
-    if(todoList){
+    if (todoList) 
         $scope.todoList = todoList;
-    }else{
+    else {
         $scope.todoList = [
             {'done' : true,  'title':"주제 고르기"},
             {'done' : true, 'title':"할일 분담하기"},
@@ -74,10 +74,9 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
     var storageKey = "NoteList";
 //	localStorageService.clearAll();
     var NoteList = localStorageService.get(storageKey);
-    if(NoteList){
-
+    if (NoteList)
         $scope.NoteList = NoteList;
-    }else{
+    else{
         $scope.NoteList = [
             {'content':"27일 멘토링 종료", 'order': 1, 'edit': true, 'modifyclick':false, 'color':"#ffffaa"},
             {'content':"3월 4일 \n LG그룹 이력서 접수 시작", 'order': 2, 'edit': true, 'modifyclick':false, 'color':"#ffffaa"},
@@ -95,21 +94,21 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 		if(message.length == 0){
 			alert("메모를 입력하세요.");
 		}else{
-			if($scope.NoteList.length == 0){
+			if ($scope.NoteList.length == 0) {
 				$scope.NoteList.push({
-				content:message,
-				order: 1,
-				edit:true,
-				modifyclick:false,
-				color: clr
+					content:message,
+					order: 1,
+					edit:true,
+					modifyclick:false,
+					color: clr
 				});
 			}else{
 				$scope.NoteList.push({
-				content:message,
-				order: $scope.NoteList[$scope.NoteList.length-1].order+1,
-				edit:true,
-				modifyclick:false,
-				color: clr
+					content:message,
+					order: $scope.NoteList[$scope.NoteList.length-1].order+1,
+					edit:true,
+					modifyclick:false,
+					color: clr
 				});
 			}
 			$scope.message="";
@@ -117,7 +116,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
     };
 	var index;
     //메모 삭제
-    $scope.remove = function(note){
+    $scope.remove = function (note) {
         index =$scope.NoteList.indexOf(note);
         $scope.NoteList.splice(index,1);
     };
@@ -130,7 +129,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 	var temp;
 	var colorValue;
 	//메모 수정
-	$scope.modify = function(msg, note, clr){
+	$scope.modify = function (msg, note, clr) {
 		index =$scope.NoteList.indexOf(note);
 		temp = msg;
 		colorValue = clr;
@@ -161,7 +160,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
     }
 
     //입력 가능 글자
-	$scope.left  = function(msg) {return msg.length + " / " + 300;};
+	$scope.left  = function (msg) {return msg.length + " / " + 300;};
 
 }]); //NoteCtrl
 
