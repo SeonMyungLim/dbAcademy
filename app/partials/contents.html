@@ -1,33 +1,32 @@
 <!--Body content-->
 <div class="row-fluid" ng-controller="NoteCtrl">
 
-	<div class="searchbox"> <!--Memo Search Start-->
-	  <input type="text" class="form-control" ng-model="query" placeholder="메모 검색">
-	  <input class="btn-success" type="button" ng-click="saveLocalMemo()" value="전체 메모 저장">
-	  
+	<div class="contentHeader"> <!--Memo Search Start-->
+	  <input class="btn-success saveBtn" type="button" ng-click="saveLocalMemo()" value="전체 메모 저장">
+	  <input type="text" class="form-control searchbox" ng-model="query" placeholder="메모 검색">
 	</div> <!--Memo Search End-->
 	<p></p>
 	
 	<div class="noteAdd oneNote col-md-2" style="background-color: {{clrInit.color}}">	  
-	  <p class="memoName"><span><input color-picker="clrInit.color"></span><span class="memoLength" ng-bind="left(message)"><span></p>
-	  <p><textarea class="writeMessage" style="background-color: {{clrInit.color}}" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea></p>
-	  <p class="bottom">
+	  <div class="memoName" ><input color-picker="clrInit.color"><span class="memoLength" ng-bind="left(message)"><span></div>
+	  <div><textarea class="writeMessage" style="background-color: {{clrInit.color}}" placeholder="새 메모를 입력하세요." ng-model="message" maxLength="300"></textarea></div>
+	  <div class="bottom">
 			<button class="savebtn btn-link" ng-click="save(message, clrInit.color)">Save</button>
 			<button class="cancelbtn btn-link" ng-click="cancel()">Cancel</button>
-	  </p>
+	  </div>
 
 	</div><!-- noteAdd oneNote col-md-2 -->
 
 	<div ng-repeat="note in NoteList | filter:query ">
 		<div class="oneNote col-md-2" style="background-color: {{note.color}}">
-		  <p class="memoName">{{note.order}}<span class="memoLength" ng-bind="left(note.content)" ng-hide="note.edit"><span></p>
-		  <p><textarea class="readMessage" style="background-color: {{note.color}}" ng-disabled="note.edit" ng-model="note.content"></textarea></p>
-		  <p class="bottom">
+		  <div class="memoName">{{note.order}}<span class="memoLength" ng-bind="left(note.content)" ng-hide="note.edit"><span></div>
+		  <div><textarea class="readMessage" style="background-color: {{note.color}}" ng-disabled="note.edit" ng-model="note.content"></textarea></div>
+		  <div class="bottom">
 			<button class="modifybtn btn-link" ng-click="modify(note.content, note)" ng-hide="note.modifyclick">Modify</button>
 			<button class="deletebtn btn-link" ng-click="remove(note)" ng-hide="note.modifyclick">Delete</button>
 			<button class="savebtn btn-link" ng-click="saveMemo(note)" ng-hide="note.edit">Save</button>
 			<button class="cancelbtn btn-link" ng-click="cancelMemo(note)" ng-hide="note.edit">Cancel</button>
-		  </p>
+		  </div>
 		</div>
 		
 	</div>
