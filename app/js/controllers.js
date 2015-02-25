@@ -24,6 +24,17 @@ TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope,
         ]
     };
 
+
+
+    //입력창 엔터키 검사
+    $scope.checkKey = function(event){
+        if(event.keyCode==13){
+            $scope.addNewTodo(document.getElementById('titleInput').value);
+            $scope.newTitle="";
+        }
+
+    };
+
     //새로운 할 일 추가
     $scope.addNewTodo = function(newTitle){
         $scope.todoList.push({done:false, title:newTitle});
@@ -115,7 +126,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
     $scope.cancel = function(){
         $scope.message="";
     }
-	
+
 	var temp;
 	//메모 수정
 	$scope.modify = function(msg, note){
@@ -130,7 +141,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 		index =$scope.NoteList.indexOf(note);
 		$scope.NoteList[index].content = temp;
 		$scope.NoteList[index].edit = true;
-		$scope.NoteList[index].modifyclick = false;	
+		$scope.NoteList[index].modifyclick = false;
 //		alert($scope.NoteList[index].content);
 	}
 
@@ -139,12 +150,12 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 		$scope.NoteList[index].modifyclick = false;
 //		alert(msg);
 	}
-    
+
 	$scope.saveLocalMemo = function(){
         localStorageService.add(storageKey,$scope.NoteList);
         alert("메모 저장 완료");
     }
-	
+
     //입력 가능 글자
 	$scope.left  = function(msg) {return msg.length + " / " + 300;};
 
