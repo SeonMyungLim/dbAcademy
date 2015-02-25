@@ -4,6 +4,9 @@ body {
   padding-top: 20px;
 }
 
+.saveBtn {
+	margin-left: 20px;
+}
 .contentHeader{   
     height:60px;
     margin: 0 0 2.5em 0;
