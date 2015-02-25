@@ -5,7 +5,7 @@ body {
 }
 
 .col-md-2{
-    background-color: brown;
+/*    background-color: brown;*/
 }
 
 .searchbox{
@@ -17,7 +17,7 @@ body {
 .oneNote{
     width: 210px;
     height: 230px;
-	background-color: #ffa;
+/*	background-color: #ffa;*/
     margin: -0.5em 1.5em 1.5em 0;
 	-moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
 	-webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
@@ -36,7 +36,7 @@ textarea {
 	width:190px;
     height:170px;
 	float: left; 
-	background: #ffa;
+/*	background: #ffa; */
 	border: 0; 
 	resize:none;
 }

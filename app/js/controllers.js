@@ -61,24 +61,26 @@ TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope,
 TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, localStorageService){
 
     var storageKey = "NoteList";
+//	localStorageService.clearAll();
     var NoteList = localStorageService.get(storageKey);
     if(NoteList){
 
         $scope.NoteList = NoteList;
     }else{
         $scope.NoteList = [
-            {'content':"27일 멘토링 종료", 'order': 1, 'edit': true, 'modifyclick':false},
-            {'content':"3월 4일 \n LG그룹 이력서 접수 시작", 'order': 2, 'edit': true, 'modifyclick':false},
-            {'content':"Mean :\n MongDB,\n Express,\n AngularJS, \n NodeJS", 'order': 3, 'edit': true, 'modifyclick':false}
+            {'content':"27일 멘토링 종료", 'order': 1, 'edit': true, 'modifyclick':false, 'color':"#ffffaa"},
+            {'content':"3월 4일 \n LG그룹 이력서 접수 시작", 'order': 2, 'edit': true, 'modifyclick':false, 'color':"#ffffaa"},
+            {'content':"Mean :\n MongDB,\n Express,\n AngularJS, \n NodeJS", 'order': 3, 'edit': true, 'modifyclick':false, 'color':"#ffffaa"}
         ]
     }
 
     $scope.appName = 'Note List';
     //초기 할일 목록 설정
     $scope.message="";
+	$scope.clrInit = {'color':"#ffffaa"};
 
     //새로운 메모 추가
-    $scope.save = function(message){
+    $scope.save = function(message, clr){
 		if(message.length == 0){
 			alert("메모를 입력하세요.");
 		}else{
@@ -87,14 +89,16 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 				content:message,
 				order: 1,
 				edit:true,
-				modifyclick:false
+				modifyclick:false,
+				color: clr
 				});
 			}else{
 				$scope.NoteList.push({
 				content:message,
 				order: $scope.NoteList[$scope.NoteList.length-1].order+1,
 				edit:true,
-				modifyclick:false
+				modifyclick:false,
+				color: clr
 				});
 			}
 			$scope.message="";
@@ -145,3 +149,4 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 	$scope.left  = function(msg) {return msg.length + " / " + 300;};
 
 }]); //NoteCtrl
+
