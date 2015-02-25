@@ -28,6 +28,7 @@ TODOApp.controller('todoCtrl', ["$scope","localStorageService", function($scope,
 
     //입력창 엔터키 검사
     $scope.checkKey = function(event){
+        var title =         console.log(title);
         if(event.keyCode==13){
             $scope.addNewTodo(document.getElementById('titleInput').value);
             $scope.newTitle="";
