@@ -4,15 +4,24 @@ body {
   padding-top: 20px;
 }
 
-.col-md-2{
-/*    background-color: brown;*/
+.contentHeader{   
+    height:60px;
+    margin: 0 0 2.5em 0;
+    padding-right: 40px;
+}
+
+.saveBtn{
+    float: right;
+    height: 50px;
 }
 
 .searchbox{
-  width: 200px;
-  height: 60px;
-  
+    width: 180px;
+    float :right;
+    height: 50px;
+
 }
+
 
 .oneNote{
     width: 210px;
