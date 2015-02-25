@@ -117,10 +117,12 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
     }
 	
 	var temp;
+	var colorValue;
 	//메모 수정
-	$scope.modify = function(msg, note){
+	$scope.modify = function(msg, note, clr){
 		index =$scope.NoteList.indexOf(note);
 		temp = msg;
+		colorValue = clr;
 //		alert(temp);
 		$scope.NoteList[index].edit = false;
 		$scope.NoteList[index].modifyclick = true;
@@ -131,6 +133,7 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 		$scope.NoteList[index].content = temp;
 		$scope.NoteList[index].edit = true;
 		$scope.NoteList[index].modifyclick = false;	
+		$scope.NoteList[index].color = colorValue;
 //		alert($scope.NoteList[index].content);
 	}
 
