@@ -135,7 +135,8 @@ TODOApp.controller('NoteCtrl', ["$scope","localStorageService",function($scope, 
 		$scope.NoteList[index].modifyclick = false;
 //		alert(msg);
 	}
-    $scope.saveLocalMemo = function(index){
+    
+	$scope.saveLocalMemo = function(){
         localStorageService.add(storageKey,$scope.NoteList);
         alert("메모 저장 완료");
     }
